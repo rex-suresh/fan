@@ -1,0 +1,48 @@
+<html>
+
+  <head>
+    <title>FAN</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+
+      const getRotation = (clientX) => {
+        return Math.floor(clientX / 100);
+      }
+
+      const changeRotation = function (event) {
+        let angle = 0;
+
+        const rotate = function (event) {
+          const interval = setInterval(() => {
+            const { clientX, clientY } = event;
+            const increment = getRotation(clientX);
+            angle = (angle + increment) % 360;
+
+            console.log(clientX, clientY);
+            document.getElementById('fan')
+              .setAttribute('style', `transform: rotate(${angle}deg)`);
+
+          }, 100);
+
+          setTimeout(() => {
+            clearInterval(interval);
+          }, 5000);
+        };
+
+        return rotate;
+      };
+
+      const rotate = changeRotation();
+    </script>
+  </head>
+
+  <body onmousemove="rotate(event)">
+    <div class="page-wrapper">
+      <h1 class="heading">NEED HAWA ?</h1>
+      <div id="fan" class="image-block" style="transform: rotate(0deg)">
+        <img src="fan1.png" alt="fan">
+      </div>
+    </div>
+  </body>
+
+</html>

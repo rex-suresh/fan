@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page-wrapper {
+  background-color: darkgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.image-block {
+  transform-origin: center;
+  /* transition: 10ms ease; */
+  height: 400px;
+}
+
+.image-block > img {
+  height: 100%;
+}
